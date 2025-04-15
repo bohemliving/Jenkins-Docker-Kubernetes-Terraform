@@ -9,8 +9,8 @@ terraform {
 }
 
 provider "azurerm" {
-  subscription_id = "61bd38d2-51fa-4243-9689-7f55df510fc1"
-  tenant_id       = "b0b76d6e-14b7-4c08-8657-a19ef23b3b0b"
+  subscription_id = "ec4470c8-6273-43aa-afa1-56aa423b2431"
+  tenant_id       = "6c6b8257-3ffb-4bbc-bda6-010cccbb9a60"
   features {}
 }
 
@@ -20,19 +20,19 @@ variable "location" {
 }
 
 variable "resource_group_name" {
-  default = "myResourceGroup"
+  default = "new_rg"
 }
 
 variable "acr_name" {
-  default = "acrrathore01" 
+  default = "acr001" 
 }
 
 variable "aks_cluster_name" {
-  default = "myAKSCluster"
+  default = "myAKSCluster00"
 }
 
 variable "dns_prefix" {
-  default = "myakscluster"
+  default = "myakscluster00"
 }
 
 variable "node_count" {
@@ -64,7 +64,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   default_node_pool {
     name       = "default"
     node_count = var.node_count
-    vm_size    = "Standard_DS2_v2"
+    vm_size    = "Standard_B2s"
   }
 
   identity {
